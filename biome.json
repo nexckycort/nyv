@@ -1,0 +1,38 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.13/schema.json",
+  "files": {
+    "includes": [
+      "**",
+      "!**/routeTree.gen.ts",
+      "!**/*.astro"
+    ]
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  }
+}

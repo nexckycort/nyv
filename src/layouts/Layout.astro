@@ -1,0 +1,48 @@
+---
+import "../styles/global.css";
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "a namespace for small systems and experiments" } =
+  Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/logo.webp" />
+    <meta
+      property="og:image:alt"
+      content="nyv - a namespace for small systems and experiments"
+    />
+    <meta property="og:url" content={Astro.url} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/logo.webp" />
+    <meta
+      name="twitter:image:alt"
+      content="nyv - a namespace for small systems and experiments"
+    />
+    <meta name="twitter:description" content={description} />
+
+    <title>{title}</title>
+  </head>
+  <body class="font-mono antialiased">
+    <slot />
+  </body>
+</html>

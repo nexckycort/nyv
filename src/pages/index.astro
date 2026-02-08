@@ -1,0 +1,39 @@
+---
+import NyvLogo from "../components/NyvLogo.astro";
+import SubdomainItem from "../components/SubdomainItem.astro";
+import Layout from "../layouts/Layout.astro";
+
+const subdomains = [
+  { name: "impostor.nyv.app", href: "https://impostor.nyv.app" },
+];
+---
+
+<Layout title="nyv">
+  <main class="flex min-h-svh flex-col items-center justify-center px-6 py-24">
+    <div class="w-full max-w-md">
+      <div class="flex justify-center">
+        <NyvLogo size={72} />
+      </div>
+
+      <h1 class="mt-8 text-center text-lg tracking-widest text-foreground">
+        nyv
+      </h1>
+
+      <p class="mt-3 text-center text-xs leading-relaxed text-muted-foreground">
+        a namespace for small systems and experiments
+      </p>
+
+      <div class="mt-16 border-t border-border">
+        {
+          subdomains.map((sub) => (
+            <SubdomainItem name={sub.name} href={sub.href} />
+          ))
+        }
+      </div>
+
+      <footer class="mt-24 text-center text-xs text-muted-foreground">
+        nyv
+      </footer>
+    </div>
+  </main>
+</Layout>

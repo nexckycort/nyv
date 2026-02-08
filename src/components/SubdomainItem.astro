@@ -1,0 +1,20 @@
+---
+export interface Props {
+  name: string;
+  href: string;
+}
+
+const { name, href } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="flex items-center justify-between border-b border-border px-4 py-3 transition-opacity duration-200 hover:opacity-60"
+>
+  <span class="text-sm text-foreground">{name}</span>
+  <span class="text-xs text-muted-foreground" aria-hidden="true">
+    {"->"}
+  </span>
+</a>
