@@ -2,19 +2,37 @@
 export interface Props {
   name: string;
   href: string;
+  type?: string;
+  description?: string;
 }
 
-const { name, href } = Astro.props;
+const { name, href, type, description } = Astro.props;
 ---
 
 <a
   href={href}
   target="_blank"
   rel="noopener noreferrer"
-  class="flex items-center justify-between border-b border-border px-4 py-3 transition-opacity duration-200 hover:opacity-60"
+  class="block border-b border-border px-4 py-3 transition-opacity duration-200 hover:opacity-60"
 >
-  <span class="text-sm text-foreground">{name}</span>
-  <span class="text-xs text-muted-foreground" aria-hidden="true">
-    {"->"}
-  </span>
+  <div class="flex items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <span class="text-sm text-foreground">{name}</span>
+      {
+        type && (
+          <span
+            class="border border-border px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-muted-foreground"
+          >
+            {type}
+          </span>
+        )
+      }
+    </div>
+    <span class="text-xs text-muted-foreground" aria-hidden="true">
+      {"->"}
+    </span>
+  </div>
+  {
+    description && <p class="mt-2 text-xs text-muted-foreground">{description}</p>
+  }
 </a>

@@ -5,6 +5,12 @@ import Layout from "../layouts/Layout.astro";
 
 const subdomains = [
   { name: "impostor.nyv.app", href: "https://impostor.nyv.app" },
+  {
+    name: "splitway.app",
+    href: "https://splitway.app",
+    type: "free app",
+    description: "a serious free app born from nyv",
+  },
 ];
 ---
 
@@ -26,7 +32,12 @@ const subdomains = [
       <div class="mt-16 border-t border-border">
         {
           subdomains.map((sub) => (
-            <SubdomainItem name={sub.name} href={sub.href} />
+            <SubdomainItem
+              name={sub.name}
+              href={sub.href}
+              type={sub.type}
+              description={sub.description}
+            />
           ))
         }
       </div>
